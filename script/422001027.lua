@@ -16,7 +16,7 @@ end
 
 function s.target(e, tp, eg, ep, ev, re, r, rp, chk)
 	if chk == 0 then
-		return Dule.GetFieldGroupCount(tp, 0, LOCATION_HAND) > 0
+		return Duel.GetFieldGroupCount(tp, 0, LOCATION_HAND) > 0
 	end
 	Duel.SetTargetPlayer(tp)
 	Duel.SetOperationInfo(0, CATEGORY_RECOVER, nil, 0, tp, 0)
