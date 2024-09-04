@@ -31,5 +31,7 @@ function s.operation(e, tp, eg, ep, ev, re, r, rp)
 		return
 	end
 
-	if Duel.SpecialSummon(c, 0, tp, tp, true, false, POS_ATTACK, 1)
+	if Duel.SpecialSummon(c, 0, tp, tp, true, false, POS_ATTACK, 1 << 0) ~= 0 then
+		c:CompleteProcedure()
+	end
 end
