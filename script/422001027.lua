@@ -1,9 +1,9 @@
 -- Neo
-local s, id = GetId()
+local s, id = GetID()
 
 function s.initial_effect(c)
 	local e1 = Effect.CreateEffect(c)
-	e1:SetDescription(aux.Stringid(id, 0))
+	e1:SetDescription(aux.Stringid(id,0))
 	e1:SetProperty(EFFECT_FLAG_PLAYER_TARGET)
 	e1:SetCategory(CATEGORY_RECOVER)
 	e1:SetType(EFFECT_TYPE_IGNITION)
