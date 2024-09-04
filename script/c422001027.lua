@@ -1,5 +1,6 @@
 -- Neo
-local s,id=GetID()
+local s, id = GetID()
+
 function s.initial_effect(c)
 	--recover
 	local e1=Effect.CreateEffect(c)
