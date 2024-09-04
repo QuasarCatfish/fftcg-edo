@@ -1,8 +1,8 @@
 -- Neo
-local s, id = GetID()
-
+local s,id=GetID()
 function s.initial_effect(c)
-	local e1 = Effect.CreateEffect(c)
+	--recover
+	local e1=Effect.CreateEffect(c)
 	e1:SetDescription(aux.Stringid(id,0))
 	e1:SetProperty(EFFECT_FLAG_PLAYER_TARGET)
 	e1:SetCategory(CATEGORY_RECOVER)
@@ -13,17 +13,13 @@ function s.initial_effect(c)
 	e1:SetOperation(s.operation)
 	c:RegisterEffect(e1)
 end
-
-function s.target(e, tp, eg, ep, ev, re, r, rp, chk)
-	if chk == 0 then
-		return Duel.GetFieldGroupCount(tp, 0, LOCATION_HAND) > 0
-	end
+function s.target(e,tp,eg,ep,ev,re,r,rp,chk)
+	if chk==0 then return Duel.GetFieldGroupCount(tp,0,LOCATION_HAND)>0 end
 	Duel.SetTargetPlayer(tp)
-	Duel.SetOperationInfo(0, CATEGORY_RECOVER, nil, 0, tp, 0)
+	Duel.SetOperationInfo(0,CATEGORY_RECOVER,nil,0,tp,0)
 end
-
-function s.operation(e, tp, eg, ep, ev, re, r, rp)
-	local rt = 500 * Duel.GetFieldGroupCount(tp, 0, LOCATION_HAND)
-	local p = Duel.GetChainInfo(0, CHAININFO_TARGET_PLAYER)
-	Duel.Recover(p, rt, REASON_EFFECT)
+function s.operation(e,tp,eg,ep,ev,re,r,rp)
+	local rt=Duel.GetFieldGroupCount(tp,0,LOCATION_HAND)*500
+	local p=Duel.GetChainInfo(0,CHAININFO_TARGET_PLAYER)
+	Duel.Recover(p,rt,REASON_EFFECT)
 end
